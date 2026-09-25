@@ -28,3 +28,10 @@ If the arguments or the custom key function produce an unhashable key, the funct
 ## Exported names
 
 - `Memoizer`
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
